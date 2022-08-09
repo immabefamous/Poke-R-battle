@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Poke-R-Battle",
+    "slug": "Poke-R-Battle",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
