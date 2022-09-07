@@ -222,8 +222,8 @@ const FightScreen = ({ navigation, route}) => {
               position: "absolute",
               right: 0,
               top: 20,
-              width: 150,
-              height: 150
+              width: 75,
+              height: 75
             }} />
         </Animated.View>
         <View className="trainer-f">
@@ -234,8 +234,8 @@ const FightScreen = ({ navigation, route}) => {
                 position: "absolute",
                 left: 0,
                 top: 175,
-                width: 150,
-                height: 150
+                width: 75,
+                height: 75
               }} />
           </Animated.View>
         </View>
@@ -253,8 +253,8 @@ const FightScreen = ({ navigation, route}) => {
           position: "absolute",
           left: 40,
           top: 350,
-          width: 500,
-          height: 150,
+          width: 200,
+          height: 100,
         }}>
           <TouchableWithoutFeedback onPress={() => runBattle()}>
             <Text style={{ fontSize: 75 }}> {playersPokemon[0].moves[0].move.name} </Text>

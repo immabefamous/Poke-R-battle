@@ -58,8 +58,8 @@ const AnimationScreen = ({ navigation, route }) => {
               position: "absolute",
               left: 0,
               top: 20,
-              width: 150,
-              height: 150
+              width: 75,
+              height: 75
             }} />
         </Animated.View>
         <View className="trainer-f">
@@ -70,8 +70,8 @@ const AnimationScreen = ({ navigation, route }) => {
                 position: "absolute",
                 right: 0,
                 top: 175,
-                width: 150,
-                height: 150
+                width: 75,
+                height: 75
               }} />
           </Animated.View>
           <Animated.View style={{ display: isVis2 ? "flex" : "none", transform: [{ translateX: translation3 }] }}>
@@ -81,8 +81,8 @@ const AnimationScreen = ({ navigation, route }) => {
                 position: "absolute",
                 left: 275,
                 top: 20,
-                width: 150,
-                height: 150
+                width: 75,
+                height: 75
               }} />
           </Animated.View>
           <Animated.View style={{ display: isVis2 ? "flex" : "none", transform: [{ translateX: translation4 }] }}>
@@ -92,8 +92,8 @@ const AnimationScreen = ({ navigation, route }) => {
                 position: "absolute",
                 right: 275,
                 top: 175,
-                width: 150,
-                height: 150
+                width: 75,
+                height: 75
               }} />
             </Animated.View>
         </View>
@@ -152,8 +152,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 40,
     top: 50,
-    width: 150,
-    height: 150,
+    width: 75,
+    height: 75,
     fontSize: 60,
   },
   playersPoke: {
@@ -161,8 +161,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 40,
     top: 205,
-    width: 150,
-    height: 150,
+    width: 75,
+    height: 75,
     fontSize: 60,
   },
   container: {

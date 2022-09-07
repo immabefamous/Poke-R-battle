@@ -57,7 +57,7 @@ const PokeSelectScreen = ({navigation, route }) => {
         {playersPokemon.map((element) => {
           return (
             <Image source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${element.id}.png` }}
-              style={{ width: 100, height: 100 }} />
+              style={{ width: 50, height: 50 }} />
           )
         })}
    
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
 
     },
     imgSize2: {
-        width: 80,
-        height: 80,
+        width: 50,
+        height: 50,
         paddingRight: 10,
     },
     smallImg: {

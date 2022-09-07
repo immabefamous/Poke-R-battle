@@ -172,12 +172,12 @@ const styles = StyleSheet.create({
     imageThumbnail: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: 75,
-        width: 75,
+        height: 50,
+        width: 50,
     },
     imgSize: {
-        width: 100,
-        height: 100,
+        width: 50,
+        height: 50,
         // borderBottomColor: "lightblue",
     },
     buttonSize: {
@@ -194,8 +194,8 @@ const styles = StyleSheet.create({
 
     },
     imgSize2: {
-        width: 80,
-        height: 80,
+        width: 50,
+        height: 50,
         paddingRight: 10,
     },
     smallImg: {
