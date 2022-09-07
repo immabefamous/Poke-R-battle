@@ -253,7 +253,7 @@ const FightScreen = ({ navigation, route}) => {
           position: "absolute",
           left: 40,
           top: 350,
-          width: 100,
+          width: 200,
           height: 50,
         }}>
           <TouchableWithoutFeedback onPress={() => runBattle()}>
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 40,
     top: 50,
-    width: 50,
+    width: 200,
     height: 50,
     fontSize: 60,
   },
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 40,
     top: 205,
-    width: 50,
+    width: 200,
     height: 50,
     fontSize: 60,
   },
