@@ -43,7 +43,7 @@ const BattleScreen = ({ navigation, }) => {
     }
     const getAllPokemon = async () => {
         let x = 0
-        while (x < 10) {
+        while (x < 25) {
             let randomNumber = [Math.ceil(Math.random() * 150)];
             const req = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
             const res = await req.json()

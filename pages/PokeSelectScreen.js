@@ -34,15 +34,13 @@ const PokeSelectScreen = ({navigation, route }) => {
 
     return (
     <SafeAreaView>
-      <ScrollView>
       <Text style={{position: "absolute", top: 0, right: 0}}> WINS:{winCounter}</Text>
      <View >
       <Text style={styles.fontSize}>CHOOSE YOUR POKEMON</Text>
-      <Text style={styles.fontSize}>BY CLICKING UNTIL YOU HAVE 3</Text>
       <FlatList
         data={all10Pokemon}
         renderItem={({ item }) => (
-          <View style={{ flex: 1, flexDirection: 'column', margin: 10 }}>
+          <View style={{ flex: 1, flexDirection: 'column', margin: 1 }}>
             <TouchableOpacity
               onPress={() => { if (playersPokemon.length <= 0) { return (setPlayersPokemon(last => [...last, item]), setOppsPokemon( [all10Pokemon[[Math.floor(Math.random() * 10)]]]), setIsVis5(true)) } }}>
               <Image style={styles.imgSize2} source={{ uri: item.sprites.front_default }} />
@@ -50,7 +48,7 @@ const PokeSelectScreen = ({navigation, route }) => {
           </View>
         )}
         //Setting the number of column
-        numColumns={2}
+        numColumns={5}
         keyExtractor={(item, index) => index}
       />
       <View style={{ flexDirection: "row", display: isVis5 ? "flex" : "none" }}>
@@ -81,7 +79,6 @@ const PokeSelectScreen = ({navigation, route }) => {
     }}
         title="Begin the battle" />
     </View>
-    </ScrollView>
     </SafeAreaView>
     )
 };
