@@ -253,11 +253,11 @@ const FightScreen = ({ navigation, route}) => {
           position: "absolute",
           left: 40,
           top: 350,
-          width: 200,
-          height: 100,
+          width: 100,
+          height: 50,
         }}>
           <TouchableWithoutFeedback onPress={() => runBattle()}>
-            <Text style={{ fontSize: 75 }}> {playersPokemon[0].moves[0].move.name} </Text>
+            <Text style={{ fontSize: 50 }}> {playersPokemon[0].moves[0].move.name} </Text>
           </TouchableWithoutFeedback>
         </View>
       </View>
@@ -272,8 +272,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 40,
     top: 50,
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
     fontSize: 60,
   },
   playersPoke: {
@@ -281,8 +281,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 40,
     top: 205,
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
     fontSize: 60,
   },
   container: {
@@ -303,8 +303,8 @@ const styles = StyleSheet.create({
     width: 75,
   },
   imgSize: {
-    width: 100,
-    height: 100,
+    width: 50,
+    height: 50,
     // borderBottomColor: "lightblue",
   },
   buttonSize: {
@@ -321,8 +321,8 @@ const styles = StyleSheet.create({
 
   },
   imgSize2: {
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
     paddingRight: 10,
   },
   smallImg: {
