@@ -7,6 +7,7 @@ import {
   Text,
   SafeAreaView,
   FlatList,
+  ScrollView,
   Button,
   Image,
 } from 'react-native';
@@ -16,9 +17,25 @@ const PokeSelectScreen = ({navigation, route }) => {
     const [playersPokemon, setPlayersPokemon] = useState([])
     const [oppsPokemon, setOppsPokemon] = useState([])
 
-    const {all10Pokemon, userImage} = route.params;
+    const {all10Pokemon, userImage, setWinCounter, winCounter } = route.params;
+
+    // const randomOppPokemon = () => {
+    //     let randomNumber = Math.ceil(Math.random() * 10);
+    //     let y = 0
+    //     console.log(all10Pokemon[randomNumber])
+    //     if (playersPokemon.length > y) {
+    //         let pokeRan = all10Pokemon[randomNumber]
+    //         setOppsPokemon(pokeRan)
+    //         console.log(oppsPokemon)
+    //         y = y + 1
+    //         console.log(y)
+    //     } 
+    // }
+
     return (
     <SafeAreaView>
+      <ScrollView>
+      <Text style={{position: "absolute", top: 0, right: 0}}> WINS:{winCounter}</Text>
      <View >
       <Text style={styles.fontSize}>CHOOSE YOUR POKEMON</Text>
       <Text style={styles.fontSize}>BY CLICKING UNTIL YOU HAVE 3</Text>
@@ -27,7 +44,7 @@ const PokeSelectScreen = ({navigation, route }) => {
         renderItem={({ item }) => (
           <View style={{ flex: 1, flexDirection: 'column', margin: 10 }}>
             <TouchableOpacity
-              onPress={() => { if (playersPokemon.length <= 2) { return (setPlayersPokemon(last => [...last, item]), setIsVis5(true)) } }}>
+              onPress={() => { if (playersPokemon.length <= 0) { return (setPlayersPokemon(last => [...last, item]), setOppsPokemon( [all10Pokemon[[Math.floor(Math.random() * 10)]]]), setIsVis5(true)) } }}>
               <Image style={styles.imgSize2} source={{ uri: item.sprites.front_default }} />
             </TouchableOpacity>
           </View>
@@ -43,19 +60,28 @@ const PokeSelectScreen = ({navigation, route }) => {
               style={{ width: 100, height: 100 }} />
           )
         })}
+   
+        {console.log(oppsPokemon)}
         <Button style={{ display: isVis5 ? "flex" : "none" }}
           title="RESET All"
           onPress={() => { playersPokemon.splice(0, playersPokemon.length), setIsVis5(false) }} />
       </View>
-      <Button onPress={() => navigation.navigate('Animation',
-                         {
-                            all10Pokemon: all10Pokemon,
-                            userImage: userImage,
-                            playersPokemon: playersPokemon,
-                            oppsPokemon: oppsPokemon,
-                          })}
+      <Button onPress={() => {  
+                          navigation.navigate('Animation',
+                          {
+                             all10Pokemon: all10Pokemon,
+                             userImage: userImage,
+                             playersPokemon: playersPokemon,
+                             oppsPokemon: oppsPokemon,
+                             setWinCounter: setWinCounter,
+                             winCounter: winCounter
+                           })
+                          
+      
+    }}
         title="Begin the battle" />
     </View>
+    </ScrollView>
     </SafeAreaView>
     )
 };

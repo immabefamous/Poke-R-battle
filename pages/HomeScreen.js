@@ -6,11 +6,13 @@ import {
   View,
   Text,
   SafeAreaView,
+  ScrollView
 } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView>
       <View style={{ flex: 1, padding: 16 }}>
         <View
           style={{
@@ -26,20 +28,17 @@ const HomeScreen = ({ navigation }) => {
             }}>
             Welcome to Poke R Battle
             This is a small React-Native-App to show the off my capabilities in terms of design and funtionality.
-            Here you will select a pokemon trainer and three pokemon and battle another random person.
+            Here you will select a pokemon trainer and select a pokemon and battle Trainer Red with a random pokemon from the selection you chose from.
+            You only have one move. Let's see if you can win 5 times in a row
           </Text>
           <TouchableOpacity
             style={styles.button}
             onPress={() =>
-              navigation.navigate('SettingsStack', { screen: 'Settings' })
+              navigation.navigate('Battle')
             }>
-            <Text>Go to settng Tab</Text>
+            <Text>Play PokeMon R Battle</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('Details')}>
-            <Text>Open Details Screen</Text>
-          </TouchableOpacity>
+          
         </View>
         <Text style={{ fontSize: 18, textAlign: 'center', color: 'grey' }}>
           Emmanuel Boateng
@@ -48,6 +47,7 @@ const HomeScreen = ({ navigation }) => {
           Full-Stack Developer
         </Text>
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

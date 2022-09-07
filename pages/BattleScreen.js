@@ -6,19 +6,21 @@ import {
     Text,
     SafeAreaView,
     FlatList,
-    Animated,
     Button,
     Image,
 } from 'react-native';
 
 
 
-const BattleScreen = ({ navigation }) => {
+const BattleScreen = ({ navigation, }) => {
+
+
+
     const [userImage, setUserImage] = useState("https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png")
-    const [dataSource, setDataSource] = useState([]);
+    const [winCounter, setWinCounter] = useState(null);
     const [all10Pokemon, setPokemon] = useState([])
-    
-    
+
+
     const [isVis, setIsVis] = useState(false)
     const [isVis2, setIsVis2] = useState(false)
     const [isVis3, setIsVis3] = useState(true)
@@ -33,7 +35,7 @@ const BattleScreen = ({ navigation }) => {
     // creating a way to get a random pokemon from the list
     let randomPokemon = () => {
         let randomNumber = [Math.floor(Math.random() * 10)]
-        let anyPokemon = all20Pokemon[randomNumber]
+        let anyPokemon = all10Pokemon[randomNumber]
         return (
             anyPokemon
             // anyTrainer.trainerImg
@@ -75,12 +77,11 @@ const BattleScreen = ({ navigation }) => {
         }
     }
 
-    
 
     useEffect(() => {
         // getTrainers();
         getAllPokemon();
-        
+
         //   getAllMoves();
     }, [])
 
@@ -92,58 +93,60 @@ const BattleScreen = ({ navigation }) => {
         "https://gifs4crds.carrd.co/assets/images/gallery06/9b4769f2.gif?vca07fc73a"
     ]
 
-   
-   const AnimationScreen = ({navigation}) => {
 
-   }
+    const AnimationScreen = ({ navigation }) => {
 
-   const FightScreen = ({navigation}) => {
+    }
 
-   }
+    const FightScreen = ({ navigation }) => {
+
+    }
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ flex: 1, padding: 16 }}>
-                <View
-                    style={{
-                        flex: 1,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}>
-                    <View>
-                        <Text style={styles.fontSize}>CLICK ON HIM OR HER</Text>
-                        <FlatList
-                            data={trainersList}
-                            renderItem={({ item }) => (
-                                <View style={{ flex: 1, flexDirection: 'column', margin: 20 }}>
-                                    <TouchableOpacity
-                                        style={styles.buttonSize}
-                                        onPress={() => setUserImage(item)}>
-                                        <Image style={styles.imageThumbnail} source={{ uri: item }} />
-                                    </TouchableOpacity>
-                                </View>
-                            )}
-                            numColumns={2}
-                            keyExtractor={(item, index) => index}
-                        />
+                <View style={{ flex: 1, padding: 16 }}>
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}>
+                        <Text style={{ position: "absolute", top: 0, right: 0 }}> WINS:{winCounter}</Text>
+                        <View>
+                            <Text style={styles.fontSize}>CLICK ON HIM OR HER</Text>
+                            <FlatList
+                                data={trainersList}
+                                renderItem={({ item }) => (
+                                    <View style={{ flex: 1, flexDirection: 'column', margin: 20 }}>
+                                        <TouchableOpacity
+                                            style={styles.buttonSize}
+                                            onPress={() => setUserImage(item)}>
+                                            <Image style={styles.imageThumbnail} source={{ uri: item }} />
+                                        </TouchableOpacity>
+                                    </View>
+                                )}
+                                numColumns={2}
+                                keyExtractor={(item, index) => index}
+                            />
 
-                        <View style={styles.side}>
-                            <Text style={styles.fontSize}>TRAINER SELECTED</Text>
-                            <Image style={styles.imgSize} source={{ uri: userImage }} />
+                            <View style={styles.side}>
+                                <Text style={styles.fontSize}>TRAINER SELECTED</Text>
+                                <Image style={styles.imgSize} source={{ uri: userImage }} />
+                            </View>
+                            <Button onPress={() => navigation.navigate('PokeSelect',
+                                {
+                                    all10Pokemon: all10Pokemon,
+                                    userImage: userImage,
+                                    setWinCounter: setWinCounter,
+                                    winCounter: winCounter
+                                })}
+
+                                style={styles.buttonSize}
+                                title="PICK YOUR POKEMON"
+                            />
                         </View>
-                        <Button onPress={() => navigation.navigate('PokeSelect',
-                         {
-                            all10Pokemon: all10Pokemon,
-                            userImage: userImage,
-                          })}
-                        
-                            style={styles.buttonSize}
-                            title="PICK YOUR POKEMON"
-                        />
-                    </View>
 
-</View>
+                    </View>
                 </View>
-                
         </SafeAreaView>
     );
 };

@@ -59,156 +59,61 @@ const App = () => {
           options={{ title: 'Trainer Selection' }}
         />
         <Stack.Screen
-              name="PokeSelect"
-              component={PokeSelectScreen}
-              options={{ title: 'Pokemon Selection' }}
-            />
-            <Stack.Screen
-              name="Animation"
-              component={AnimationScreen}
-              options={{ title: 'Loading Page' }}
-            />
-            
-            {/* <Stack.Screen
-              name="Fight"
-              component={FightScreen}
-              options={{ title: 'Setting Page' }}
-            /> */}
+          name="PokeSelect"
+          component={PokeSelectScreen}
+          options={{ title: 'Pokemon Selection' }}
+        />
+        <Stack.Screen
+          name="Animation"
+          component={AnimationScreen}
+          options={{ title: 'Loading Page' }}
+        />
+
+        <Stack.Screen
+          name="Fight"
+          component={FightScreen}
+          options={{ title: 'Setting Page' }}
+        />
       </Stack.Navigator>
     );
   }
-  
+
 
   return (
-        <SafeAreaView style={styles.container}>
-           <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Feed"
-        tabBarOptions={{
-          activeTintColor: '#42f44b',
-        }}>
-        <Tab.Screen
-          name="HomeStack"
-          component={HomeStack}
-          options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="BattleStack"
-          component={BattleStack}
-          options={{
-            tabBarLabel: 'Battle',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="pokeball"
-                color={color}
-                size={size}
-              />
-            ),
-          }}
-        />
-          {/* <View style={{display: isVis ? "inherit" : "none"}}> 
-          <Text style={styles.fontSize}>CHOOSE YOUR TRAINER</Text>
-          <Text style={styles.fontSize}>BY CLICKING HIM OR HER</Text>
-          <FlatList
-            data={trainersList}
-            renderItem={({ item }) => (
-              <View style={{ flex: 1, flexDirection: 'column', margin: 20 }}>
-                <TouchableOpacity
-                  style={styles.buttonSize}
-                  onPress={() => setUserImage(item)}>
-                  <Image style={styles.imageThumbnail} source={{ uri: item }} />
-                </TouchableOpacity>
-              </View>
-            )}
-            numColumns={2}
-            keyExtractor={(item, index) => index}
+    <SafeAreaView style={styles.container}>
+      <NavigationContainer>
+        <Tab.Navigator
+          initialRouteName="Feed"
+          tabBarOptions={{
+            activeTintColor: '#42f44b',
+          }}>
+          <Tab.Screen
+            name="Welcome to Pokemon R Battle"
+            component={HomeStack}
+            options={{
+              tabBarLabel: 'Home',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="home" color={color} size={size} />
+              ),
+            }}
           />
-
-          <View style={styles.side}>
-            <Text style={styles.fontSize}>TRAINER SELECTED</Text>
-            <Image style={styles.imgSize} source={{ uri: userImage }} />
-          </View>
-          <Button onPress={trainerSelected}
-            style={styles.buttonSize}
-            title="NEXT" />
-        </View> */}
-        {/* <View style={{ display: isVis2 ? "inherit" : "none" }}>
-          <Text style={styles.fontSize}>CHOOSE YOUR POKEMON</Text>
-          <Text style={styles.fontSize}>BY CLICKING UNTIL YOU HAVE 3</Text>
-          <FlatList
-            data={all20Pokemon}
-            renderItem={({ item }) => (
-              <View style={{ flex: 1, flexDirection: 'column', margin: 10 }}>
-                <TouchableOpacity
-                  onPress={() => { if (playersPokemon.length <= 2) { return (setPlayersPokemon(last => [...last, item]), setIsVis5(true)) } }}>
-                  <Image style={styles.imgSize2} source={{ uri: item.sprites.front_default }} />
-                </TouchableOpacity>
-              </View>
-            )}
-            //Setting the number of column
-            numColumns={2}
-            keyExtractor={(item, index) => index}
+          <Tab.Screen
+            name="Pokemon R Battle"
+            component={BattleStack}
+            options={{
+              tabBarLabel: 'Battle',
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  name="pokeball"
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}
           />
-          <View style={{ flexDirection: "row", display: isVis5 ? "flex" : "none" }}>
-            {playersPokemon.map((element, index) => {
-              return (
-                <Image source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${element.id}.png` }}
-                  style={{ width: 100, height: 100 }} />
-              )
-            })}
-            <Button style={{ display: isVis5 ? "flex" : "none" }}
-              title="RESET All"
-              onPress={() => { playersPokemon.splice(0, playersPokemon.length), setIsVis5(false) }} />
-          </View>
-          <Button onPress={pokemonSelected}
-            title="NEXT" />
-        </View>
-        <View style={{ display: isVis3 ? "inherit" : "none" }}>
-          <Animated.View style={{ transform: [{ translateX: translation }] }}>
-            <Image source={{ uri: "https://www.kindpng.com/picc/m/227-2271952_red-sprite-pokemon-png-transparent-png.png" }}
-              style={{
-                flex: 1,
-                position: "absolute",
-                left: 0,
-                top: -200,
-                width: 150,
-                height: 150
-              }} />
-          </Animated.View>
-          <View className="trainer-f">
-            <Image source={{ uri: userImage }} style={{ height: 120, width: 120 }} />
-          </View>
-          <View id="start-battle">
-            <Text style={styles.fontSize}>Start battle </Text>
-            <View style={{
-              flex: 1, flexDirection: "row", position: "absolute", top: -100, right: 0
-            }}>
-              <Image source={{ uri: "https://cdn.imgbin.com/1/5/20/imgbin-pok-ball-pok-mon-go-pokemon-go-7qgQVQfUmtCQEvBdeVffdxuhp.jpg" }}
-                style={styles.smallImg} />
-              <Image source={{ uri: "https://cdn.imgbin.com/1/5/20/imgbin-pok-ball-pok-mon-go-pokemon-go-7qgQVQfUmtCQEvBdeVffdxuhp.jpg" }}
-                style={styles.smallImg} />
-              <Image source={{ uri: "https://cdn.imgbin.com/1/5/20/imgbin-pok-ball-pok-mon-go-pokemon-go-7qgQVQfUmtCQEvBdeVffdxuhp.jpg" }}
-                style={styles.smallImg} />
-            </View>
-            <View id="oppPokeballs">
-              <Image source={{ uri: "https://cdn.imgbin.com/1/5/20/imgbin-pok-ball-pok-mon-go-pokemon-go-7qgQVQfUmtCQEvBdeVffdxuhp.jpg" }}
-                style={styles.smallImg} />
-              <Image source={{ uri: "https://cdn.imgbin.com/1/5/20/imgbin-pok-ball-pok-mon-go-pokemon-go-7qgQVQfUmtCQEvBdeVffdxuhp.jpg" }}
-                style={styles.smallImg} />
-              <Image source={{ uri: "https://cdn.imgbin.com/1/5/20/imgbin-pok-ball-pok-mon-go-pokemon-go-7qgQVQfUmtCQEvBdeVffdxuhp.jpg" }}
-                style={styles.smallImg} />
-            </View>
-          </View>
-        </View>
-        {console.log(playersPokemon)}
-        {console.log(trainersPokemon)} */}
-    </Tab.Navigator>
-    </NavigationContainer>
+         
+        </Tab.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 };
